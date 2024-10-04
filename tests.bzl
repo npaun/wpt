@@ -1,7 +1,7 @@
 # This excludes all folders that start with `.` annotation to remove folders like `.github`
-directories = glob(["*"], exclude_directories = 0, exclude = glob(["*", ".*"], exclude_directories = 1))
+directories = native.glob(["*"], exclude_directories = 0, exclude = native.glob(["*", ".*"], exclude_directories = 1))
 
 TEST_GROUPS = {
-    name: glob([name + "/**/*"])
+    name: native.glob([name + "/**/*"])
     for name in directories
 }
