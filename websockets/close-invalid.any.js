@@ -12,7 +12,7 @@
   [0x10000 + 1000, "2**16+1000"],
 ].forEach(function(t) {
   test(function() {
-    var ws = CreateWebSocket(false, false);
+    let ws = CreateWebSocket(false, false);
     assert_throws_dom("InvalidAccessError", function() {
       ws.close(t[0]);
     });

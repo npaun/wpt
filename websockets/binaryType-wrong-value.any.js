@@ -3,7 +3,7 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Create WebSocket - set binaryType to something other than blob or arraybuffer - SYNTAX_ERR is returned - Connection should be closed");
+const test = async_test("Create WebSocket - set binaryType to something other than blob or arraybuffer - SYNTAX_ERR is returned - Connection should be closed");
 
 let wsocket = CreateWebSocket(false, false);
 let opened = false;

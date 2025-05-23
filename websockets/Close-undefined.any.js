@@ -3,10 +3,10 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test();
+const test = async_test();
 
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   isOpenCalled = true;

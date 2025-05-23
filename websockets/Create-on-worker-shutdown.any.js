@@ -1,8 +1,8 @@
 async_test(t => {
   function workerCode() {
     close();
-    var ws = new WebSocket(self.location.origin.replace('http', 'ws'));
-    var data = {
+    let ws = new WebSocket(self.location.origin.replace('http', 'ws'));
+    let data = {
       originalState: ws.readyState,
       afterCloseState: null
      };
@@ -13,11 +13,11 @@ async_test(t => {
     postMessage(data);
   }
 
-  var workerBlob = new Blob([workerCode.toString() + ";workerCode();"], {
+  let workerBlob = new Blob([workerCode.toString() + ";workerCode();"], {
     type: "application/javascript"
   });
 
-  var w = new Worker(URL.createObjectURL(workerBlob));
+  let w = new Worker(URL.createObjectURL(workerBlob));
   w.onmessage = t.step_func(function(e) {
     assert_equals(e.data.originalState, WebSocket.CONNECTING, "WebSocket created on worker shutdown is in connecting state.");
     assert_equals(e.data.afterCloseState, WebSocket.CLOSING, "Closed WebSocket created on worker shutdown is in closing state.");

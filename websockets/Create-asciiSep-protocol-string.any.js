@@ -4,8 +4,8 @@
 // META: variant=?wpt_flags=h2
 
 test(function() {
-  var asciiWithSep = "/echo";
-  var wsocket;
+  let asciiWithSep = "/echo";
+  let wsocket;
   assert_throws_dom("SYNTAX_ERR", function() {
     wsocket = CreateWebSocketWithAsciiSep(asciiWithSep)
   });

@@ -4,7 +4,7 @@
 // META: variant=?wpt_flags=h2
 
 test(function() {
-  var wsocket;
+  let wsocket;
   assert_throws_dom("SYNTAX_ERR", function() {
     wsocket = CreateWebSocketWithRepeatedProtocolsCaseInsensitive()
   });

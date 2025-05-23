@@ -4,7 +4,7 @@
 // META: variant=?wpt_flags=h2
 
 test(function() {
-  var wsocket = CreateWebSocket(false, false);
+  let wsocket = CreateWebSocket(false, false);
   assert_throws_dom("INVALID_STATE_ERR", function() {
     wsocket.send("Message to send")
   });

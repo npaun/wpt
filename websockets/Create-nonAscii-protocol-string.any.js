@@ -4,8 +4,8 @@
 // META: variant=?wpt_flags=h2
 
 test(function() {
-  var nonAsciiProtocol = "\u0080echo";
-  var wsocket;
+  let nonAsciiProtocol = "\u0080echo";
+  let wsocket;
   assert_throws_dom("SYNTAX_ERR", function() {
     wsocket = CreateWebSocketNonAsciiProtocol(nonAsciiProtocol)
   });

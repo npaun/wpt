@@ -72,7 +72,7 @@ function CreateWebSocketWithRepeatedProtocols() {
 function CreateWebSocketWithRepeatedProtocolsCaseInsensitive() {
   IsWebSocket();
   const url = SCHEME_DOMAIN_PORT + "/" + __PATH;
-  wsocket = new WebSocket(url, ["echo", "eCho"]);
+  return new WebSocket(url, ["echo", "eCho"]);
 }
 
 function CreateInsecureWebSocket() {

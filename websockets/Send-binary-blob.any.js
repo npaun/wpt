@@ -3,18 +3,18 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test("Send binary data on a WebSocket - Blob - Connection should be closed");
+const test = async_test("Send binary data on a WebSocket - Blob - Connection should be closed");
 
-var data = "";
-var datasize = 65000;
-var isOpenCalled = false;
-var isMessageCalled = false;
+let data = "";
+let datasize = 65000;
+let isOpenCalled = false;
+let isMessageCalled = false;
 
-var wsocket = CreateWebSocket(false, false);
+let wsocket = CreateWebSocket(false, false);
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   wsocket.binaryType = "blob";
-  for (var i = 0; i < datasize; i++)
+  for (let i = 0; i < datasize; i++)
     data += String.fromCharCode(0);
   data = new Blob([data]);
   isOpenCalled = true;

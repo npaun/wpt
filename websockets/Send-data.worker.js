@@ -5,11 +5,11 @@
 importScripts("/resources/testharness.js");
 importScripts('constants.sub.js')
 
-var data = "test data";
+let data = "test data";
 
 async_test(function(t) {
 
-    var wsocket = CreateWebSocket(false, false);
+    let wsocket = CreateWebSocket(false, false);
 
     wsocket.addEventListener('open', function (e) {
         wsocket.send(data)

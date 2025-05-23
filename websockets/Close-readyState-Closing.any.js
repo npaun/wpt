@@ -3,10 +3,10 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Create WebSocket - Close the Connection - readyState should be in CLOSING state just before onclose is called");
+const test = async_test("Create WebSocket - Close the Connection - readyState should be in CLOSING state just before onclose is called");
 
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   isOpenCalled = true;

@@ -4,10 +4,10 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test("Create WebSocket - wsocket.extensions should be set to '' after connection is established - Connection should be closed");
+const test = async_test("Create WebSocket - wsocket.extensions should be set to '' after connection is established - Connection should be closed");
 
-var wsocket = new WebSocket(SCHEME_DOMAIN_PORT + "/handshake_no_extensions");
-var isOpenCalled = false;
+let wsocket = new WebSocket(SCHEME_DOMAIN_PORT + "/handshake_no_extensions");
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func_done(function(evt) {
   wsocket.close();

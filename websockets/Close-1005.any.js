@@ -3,10 +3,10 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Create WebSocket - Close the Connection - close(1005) - see '7.1.5.  The WebSocket Connection Close Code' in http://www.ietf.org/rfc/rfc6455.txt");
+const test = async_test("Create WebSocket - Close the Connection - close(1005) - see '7.1.5.  The WebSocket Connection Close Code' in http://www.ietf.org/rfc/rfc6455.txt");
 
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   assert_throws_dom("INVALID_ACCESS_ERR", function() {

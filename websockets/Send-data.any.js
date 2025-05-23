@@ -3,12 +3,12 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Send data on a WebSocket - Connection should be closed");
+const test = async_test("Send data on a WebSocket - Connection should be closed");
 
-var data = "Message to send";
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
-var isMessageCalled = false;
+let data = "Message to send";
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
+let isMessageCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   wsocket.send(data);

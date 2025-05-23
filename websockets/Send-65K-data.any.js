@@ -3,15 +3,15 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test("Send 65K data on a WebSocket - Connection should be closed");
+const test = async_test("Send 65K data on a WebSocket - Connection should be closed");
 
-var data = "";
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
-var isMessageCalled = false;
+let data = "";
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
+let isMessageCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
-  for (var i = 0; i < 65000; i++) {
+  for (let i = 0; i < 65000; i++) {
     data = data + "c";
   }
   wsocket.send(data);

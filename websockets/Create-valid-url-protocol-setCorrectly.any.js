@@ -3,10 +3,10 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test("Create WebSocket - Pass a valid URL and protocol string - Connection should be closed");
+const test = async_test("Create WebSocket - Pass a valid URL and protocol string - Connection should be closed");
 
-var wsocket = CreateWebSocket(true, false);
-var isOpenCalled = false;
+let wsocket = CreateWebSocket(true, false);
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   assert_equals(wsocket.protocol, "echo", "protocol should be set to echo");

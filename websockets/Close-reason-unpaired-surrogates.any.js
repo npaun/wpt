@@ -3,12 +3,12 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Create WebSocket - Close the Connection - close(reason with unpaired surrogates) - connection should get closed");
+const test = async_test("Create WebSocket - Close the Connection - close(reason with unpaired surrogates) - connection should get closed");
 
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
-var replacementChar = "\uFFFD";
-var reason = "\uD807";
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
+let replacementChar = "\uFFFD";
+let reason = "\uD807";
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   wsocket.close(1000, reason);

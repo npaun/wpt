@@ -5,7 +5,7 @@
 async function openWebSocket(remoteContextHelper) {
   let return_value = await remoteContextHelper.executeScript((domain) => {
     return new Promise((resolve) => {
-      var webSocketInNotRestoredReasonsTests = new WebSocket(domain + '/echo');
+      let webSocketInNotRestoredReasonsTests = new WebSocket(domain + '/echo');
       webSocketInNotRestoredReasonsTests.onopen = () => { resolve(42); };
     });
   }, [SCHEME_DOMAIN_PORT]);
@@ -16,7 +16,7 @@ async function openWebSocket(remoteContextHelper) {
 async function openThenCloseWebSocket(remoteContextHelper) {
   let return_value = await remoteContextHelper.executeScript((domain) => {
     return new Promise((resolve) => {
-      var testWebSocket = new WebSocket(domain + '/echo');
+      let testWebSocket = new WebSocket(domain + '/echo');
       testWebSocket.onopen = () => { testWebSocket.close() };
       testWebSocket.onclose = () => { resolve(42) };
     });

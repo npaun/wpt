@@ -3,10 +3,10 @@
 // META: variant=?wpt_flags=h2
 // META: variant=?wss
 
-var test = async_test("Create WebSocket - Pass a valid URL - Connection should be closed");
+const test = async_test("Create WebSocket - Pass a valid URL - Connection should be closed");
 
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   assert_equals(wsocket.readyState, 1, "readyState should be 1(OPEN)");

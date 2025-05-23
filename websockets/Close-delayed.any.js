@@ -3,11 +3,11 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Create WebSocket - Close the Connection - close should not emit until handshake completes - Connection should be closed");
+const test = async_test("Create WebSocket - Close the Connection - close should not emit until handshake completes - Connection should be closed");
 
-var wsocket = new WebSocket(`${SCHEME_DOMAIN_PORT}/delayed-passive-close`);
-var startTime;
-var isOpenCalled = false;
+let wsocket = new WebSocket(`${SCHEME_DOMAIN_PORT}/delayed-passive-close`);
+let startTime;
+let isOpenCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   startTime = performance.now();

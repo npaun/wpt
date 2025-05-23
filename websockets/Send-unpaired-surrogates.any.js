@@ -3,13 +3,13 @@
 // META: variant=?wss
 // META: variant=?wpt_flags=h2
 
-var test = async_test("Send unpaired surrogates on a WebSocket - Connection should be closed");
+const test = async_test("Send unpaired surrogates on a WebSocket - Connection should be closed");
 
-var data = "\uD807";
-var replacementChar = "\uFFFD";
-var wsocket = CreateWebSocket(false, false);
-var isOpenCalled = false;
-var isMessageCalled = false;
+let data = "\uD807";
+let replacementChar = "\uFFFD";
+let wsocket = CreateWebSocket(false, false);
+let isOpenCalled = false;
+let isMessageCalled = false;
 
 wsocket.addEventListener('open', test.step_func(function(evt) {
   wsocket.send(data);

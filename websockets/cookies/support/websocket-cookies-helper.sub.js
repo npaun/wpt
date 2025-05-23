@@ -1,9 +1,9 @@
 // Set up global variables.
 (_ => {
-  var HOST = '{{host}}';
-  var CROSS_ORIGIN_HOST = '{{hosts[alt][]}}';
-  var WSS_PORT = ':{{ports[wss][0]}}';
-  var HTTPS_PORT = ':{{ports[https][0]}}';
+  let HOST = '{{host}}';
+  let CROSS_ORIGIN_HOST = '{{hosts[alt][]}}';
+  let WSS_PORT = ':{{ports[wss][0]}}';
+  let HTTPS_PORT = ':{{ports[https][0]}}';
 
   window.WSS_ORIGIN = 'wss://' + HOST + WSS_PORT;
   window.WSS_CROSS_SITE_ORIGIN = 'wss://' + CROSS_ORIGIN_HOST + WSS_PORT;
@@ -34,9 +34,9 @@ function clearSameSiteCookies(origin) {
 // Gets value of Cookie header sent in request.
 function connectAndGetRequestCookiesFrom(origin) {
   return new Promise((resolve, reject) => {
-      var ws = new WebSocket(origin + '/echo-cookie');
+      let ws = new WebSocket(origin + '/echo-cookie');
       ws.onmessage = evt => {
-          var cookies = evt.data
+          let cookies = evt.data
           resolve(cookies);
           ws.onerror = undefined;
           ws.onclose = undefined;
@@ -48,10 +48,10 @@ function connectAndGetRequestCookiesFrom(origin) {
 
 // Assert that a given cookie is or is not present in the string |cookies|.
 function assertCookie(cookies, name, value, present) {
-  var assertion = present ? assert_true : assert_false;
-  var description = name + '=' + value + ' cookie is' +
+  let assertion = present ? assert_true : assert_false;
+  let description = name + '=' + value + ' cookie is' +
                     (present ? ' ' : ' not ') + 'present.';
-  var re = new RegExp('(?:^|; )' + name + '=' + value + '(?:$|;)');
+  let re = new RegExp('(?:^|; )' + name + '=' + value + '(?:$|;)');
   assertion(re.test(cookies), description);
 }
 
